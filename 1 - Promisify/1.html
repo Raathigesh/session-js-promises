@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="../superagent.js"></script>
+	<script src="../bluebird.js"></script>
+	<script src="./script.js"></script>
+</head>
+
+<body>
+	<pre style="background:#fff;color:#000"><span style="color:#ff5600">function</span> <span style="color:#21439c">getData</span>(url) {
+    <span style="color:#ff5600">return</span> <span style="color:#ff5600">new</span> <span style="color:#21439c">Promise</span>(<span style="color:#ff5600">function</span>(resolve, reject) {
+         superagent.get(url, <span style="color:#ff5600">function</span>(err, res) {
+            <span style="color:#ff5600">if</span> (err) {
+                reject();
+            }
+
+            resolve(JSON.<span style="color:#a535ae">parse</span>(res.<span style="color:#a535ae">text</span>));
+        });
+    });
+}
+
+getData(<span style="color:#00a33f">'http://localhost:3334/randomNumber'</span>).then(<span style="color:#ff5600">function</span>(res) {
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(res);
+});
+</pre>
+</body>
+
+</html>

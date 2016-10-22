@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../superagent.js"></script>        
+        <script src="../bluebird.js"></script>
+        <script src="../getData.js"></script>
+        <script src="./script.js"></script>
+    </head>
+    <body>
+<pre style="background:#fff;color:#000">getData(<span style="color:#00a33f">'http://localhost:3334/randomNumber'</span>).then(<span style="color:#ff5600">function</span>(response) {
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(<span style="color:#00a33f">'Random Number '</span> <span style="color:#ff5600">+</span> response.<span style="color:#a535ae">data</span>)
+    <span style="color:#ff5600">return</span> getData(<span style="color:#00a33f">'http://localhost:3334/isEven?value='</span> <span style="color:#ff5600">+</span> response.<span style="color:#a535ae">data</span>);
+}).then(<span style="color:#ff5600">function</span>(isEven) {
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(isEven);
+});
+</pre>
+    </body>
+</html>
+

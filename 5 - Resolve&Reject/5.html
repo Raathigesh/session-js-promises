@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../superagent.js"></script>        
+        <script src="../bluebird.js"></script>
+        <script src="../getData.js"></script>
+        <script src="./script.js"></script>
+    </head>
+    <body>     
+        <pre style="background:#fff;color:#000"><span style="color:#ff5600">function</span> <span style="color:#21439c">getDragon</span>(name) {
+    <span style="color:#ff5600">if</span> (name <span style="color:#ff5600">===</span> <span style="color:#00a33f">"Rhaegal"</span>) {
+        <span style="color:#ff5600">return</span> Promise.resolve({
+            name: <span style="color:#00a33f">"Rhaegal"</span>,
+            Species: <span style="color:#00a33f">"Dragon"</span>,
+            Status: <span style="color:#00a33f">"Alive"</span>
+        });
+    } <span style="color:#ff5600">else</span> <span style="color:#ff5600">if</span> (name <span style="color:#ff5600">===</span> <span style="color:#00a33f">"Drogon"</span>) {
+        <span style="color:#ff5600">return</span> Promise.reject(<span style="color:#ff5600">new</span> <span style="color:#21439c">Error</span>(<span style="color:#00a33f">"Sorry! You might want to talk to Khaleesi!"</span>));
+    } <span style="color:#ff5600">else</span> {
+        <span style="color:#ff5600">return</span> getData(<span style="color:#00a33f">'http://localhost:3334/dragon'</span>);
+    }    
+}
+
+getDragon(<span style="color:#00a33f">"Rhaegal"</span>).then(<span style="color:#ff5600">function</span>(res){
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(res);
+});
+
+getDragon(<span style="color:#00a33f">"Drogon"</span>).<span style="color:#ff5600">catch</span>(<span style="color:#ff5600">function</span>(err){
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(err);
+});
+
+getDragon(<span style="color:#00a33f">"Viserion"</span>).then(<span style="color:#ff5600">function</span>(res){
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(res);
+});
+</pre>   
+    </body>
+</html>
+

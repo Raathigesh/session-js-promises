@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../superagent.js"></script>        
+        <script src="../bluebird.js"></script>
+        <script src="../getData.js"></script>
+        <script src="./script.js"></script>
+    </head>
+    <body>  
+<pre style="background:#fff;color:#000"><span style="color:#ff5600">var</span> userInfoPromise <span style="color:#ff5600">=</span> getData(<span style="color:#00a33f">'http://localhost:3334/userInfo'</span>);
+<span style="color:#ff5600">var</span> userCartInfo <span style="color:#ff5600">=</span> getData(<span style="color:#00a33f">'http://localhost:3334/cart'</span>);
+<span style="color:#ff5600">var</span> userTotalInfo <span style="color:#ff5600">=</span> getData(<span style="color:#00a33f">'http://localhost:3334/total'</span>);
+
+Promise.<span style="color:#a535ae">all</span>([userInfoPromise, userCartInfo, userTotalInfo]).then(<span style="color:#ff5600">function</span>(data){
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(data);
+}).<span style="color:#ff5600">catch</span>(<span style="color:#ff5600">function</span>(err){
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(err);
+});
+</pre>   
+    </body>
+</html>
+

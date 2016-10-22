@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../superagent.js"></script>        
+        <script src="../bluebird.js"></script>
+        <script src="../getData.js"></script>
+        <script src="./script.js"></script>
+    </head>
+    <body>  
+<pre style="background:#fff;color:#000">getData(<span style="color:#00a33f">'http://localhost:3334/randomNumber'</span>).then(<span style="color:#ff5600">function</span>(res) {
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(<span style="color:#00a33f">'Received number : '</span> <span style="color:#ff5600">+</span> res.<span style="color:#a535ae">data</span>);
+    <span style="color:#ff5600">if</span> (res.<span style="color:#a535ae">data</span> <span style="color:#ff5600">===</span> 0) {
+        <span style="color:#ff5600">throw</span> <span style="color:#ff5600">new</span> <span style="color:#21439c">Error</span>(<span style="color:#00a33f">'Received 0'</span>);
+    }    
+}).then(<span style="color:#ff5600">function</span>(result) {
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(<span style="color:#00a33f">"Saving the number..."</span>);
+}).then(<span style="color:#a535ae">undefined</span>, <span style="color:#ff5600">function</span>(err) {
+    <span style="color:#21439c">console</span><span style="color:#a535ae">.log</span>(err);
+});
+</pre>     
+    </body>
+</html>
+
